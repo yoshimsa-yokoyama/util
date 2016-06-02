@@ -1,0 +1,51 @@
+
+//-
+  meta information
+
+  useage:
+
+    +util.meta({
+      title: "title",
+      description: "description",
+      keyword: "keywords",
+      og_title: "og_title",
+      og_sitename: "og_sitename",
+      og_type: "og_type",
+      og_description: "og_description",
+      og_url: "og_url",
+      og_imgurl: "og_imgurl",
+      tw_cardtype: "tw_cardtype",
+      tw_title: "tw_title",
+      tw_account: "tw_account",
+      tw_description: "tw_description",
+    })
+
+    * all keys in object are optional
+    * if the key doesn't exist, value will be used from gulpconfig.json
+
+mixin util.meta(meta)
+  meta(charset='utf-8').
+  meta(http-equiv='X-UA-Compatible', content='IE=edge').
+  title= meta.title || page_title
+  meta(name='viewport', content='width=device-width, initial-scale=1 ,user-scalable=no')
+
+  meta(name='description' content= meta.description || page_description).
+  meta(name='keywords' content= meta.keyword || page_keyword).
+  meta(property='og:title' content= meta.og_title || og_title).
+  meta(property='og:site_name' content= meta.og_sitename || og_sitename).
+  meta(name='og:type' content= meta.og_type || og_type).
+  meta(property='og:description' content= meta.og_description || og_description).
+  meta(property='og:url' content= meta.og_url || og_url).
+  meta(name='og:image' content= meta.og_imgurl || og_imgurl).
+  meta(property='twitter:card' content= meta.tw_cardtype || tw_cardtype).
+  meta(property='twitter:title' content= meta.tw_title || tw_title).
+  meta(property='twitter:site' content= meta.tw_acount || tw_account).
+  meta(name='twitter:creator' content= meta.tw_account || tw_account).
+  meta(property='twitter:description' content= meta.tw_description || og_description).
+  meta(name='twitter:image:src' content= meta.og_imgurl || og_imgurl).
+
+  link(rel='apple-touch-icon' href= touchicon_60).
+  link(rel='apple-touch-icon' sizes='76x76' href= touchicon_76).
+  link(rel='apple-touch-icon' sizes='120x120' href= touchicon_120).
+  link(rel='apple-touch-icon' sizes='152x152' href= touchicon_152).
+
